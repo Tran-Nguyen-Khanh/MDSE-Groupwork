@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webApplications:WebApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webApplications="http://www.example.org/webApplications">
+  <page xsi:type="webApplications:WelcomePage" name="Crusty Crab Pizza" description="This is a welcome page"/>
+  <page xsi:type="webApplications:ProductPage" pageID="1" name="Crusty Crab Pizza Products" description="Page to order food and drinks"/>
+  <database name="Crusty DB" type="Crab" connURL="some/url">
+    <user xsi:type="webApplications:Admin" userName="Mr_Crabs" isAdmin="true"/>
+    <user xsi:type="webApplications:Customer" userID="1" userName="SandyCheeks" eMail="Sandy-Cheeks@bkbottom.ocean" adress="Glashouse"/>
+    <user xsi:type="webApplications:Customer" userID="2" userName="PatrykStar" eMail="Patryk-Star@bkbottom.ocean" adress="Rock"/>
+    <product quantity="50" name="Pizza Peperoni" category="Food" price="12.0" description="Pizza with peperoni"/>
+    <product productID="1" quantity="30" name="Pizza Hawaii" category="Food" price="13.0" description="Pizza with pineapple"/>
+    <product productID="50" quantity="100" name="Coca Cola" category="Drinks" price="2.5" description="Coca Cola"/>
+    <order orderID="1" date="22.05.2026" status="" totalPrice="14.5"/>
+  </database>
+</webApplications:WebApplication>

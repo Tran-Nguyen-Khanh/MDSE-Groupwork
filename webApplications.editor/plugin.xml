@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated webApplications -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="webApplications.presentation.WebApplicationsModelWizardID"
+            name="%_UI_WebApplicationsModelWizard_label"
+            class="webApplications.presentation.WebApplicationsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/WebApplicationsModelFile.gif">
+         <description>%_UI_WebApplicationsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated webApplications -->
+      <editor
+            id="webApplications.presentation.WebApplicationsEditorID"
+            name="%_UI_WebApplicationsEditor_label"
+            icon="icons/full/obj16/WebApplicationsModelFile.gif"
+            extensions="webapplications"
+            class="webApplications.presentation.WebApplicationsEditor"
+            contributorClass="webApplications.presentation.WebApplicationsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

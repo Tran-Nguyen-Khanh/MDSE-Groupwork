@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/webApplications/src-gen" creationIcons="false"
+    editDirectory="/webApplications.edit/src-gen" editorDirectory="/webApplications.editor/src-gen"
+    modelPluginID="webApplications" modelName="WebApplications" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>webApplications.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="WebApplications" disposableProviderFactory="true" ecorePackage="webApplications.ecore#/">
+    <genClasses ecoreClass="webApplications.ecore#//WebApplication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//WebApplication/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webApplications.ecore#//WebApplication/page"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webApplications.ecore#//WebApplication/database"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Page/pageID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Page/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Page/description"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Database">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Database/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Database/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Database/connURL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webApplications.ecore#//Database/user"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webApplications.ecore#//Database/product"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webApplications.ecore#//Database/order"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//User/userID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//User/userName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//User/isAdmin"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Customer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Customer/eMail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Customer/adress"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webApplications.ecore#//Customer/shoppingcart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webApplications.ecore#//Customer/order"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Admin">
+      <genOperations ecoreOperation="webApplications.ecore#//Admin/overviewOrders"/>
+      <genOperations ecoreOperation="webApplications.ecore#//Admin/banCustomer">
+        <genParameters ecoreParameter="webApplications.ecore#//Admin/banCustomer/customer"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Product">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Product/productID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Product/quantity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Product/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Product/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Product/price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Product/description"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Order">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Order/orderID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webApplications.ecore#//Order/product"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Order/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Order/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Order/totalPrice"/>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//Shoppingcart">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webApplications.ecore#//Shoppingcart/product"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Shoppingcart/cartID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webApplications.ecore#//Shoppingcart/totalPrice"/>
+      <genOperations ecoreOperation="webApplications.ecore#//Shoppingcart/orderProduct">
+        <genParameters ecoreParameter="webApplications.ecore#//Shoppingcart/orderProduct/product"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//WelcomePage">
+      <genOperations ecoreOperation="webApplications.ecore#//WelcomePage/login">
+        <genParameters ecoreParameter="webApplications.ecore#//WelcomePage/login/username"/>
+        <genParameters ecoreParameter="webApplications.ecore#//WelcomePage/login/password"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//ProductPage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webApplications.ecore#//ProductPage/product"/>
+      <genOperations ecoreOperation="webApplications.ecore#//ProductPage/customizeProduct">
+        <genParameters ecoreParameter="webApplications.ecore#//ProductPage/customizeProduct/product"/>
+      </genOperations>
+      <genOperations ecoreOperation="webApplications.ecore#//ProductPage/addToCart">
+        <genParameters ecoreParameter="webApplications.ecore#//ProductPage/addToCart/product"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="webApplications.ecore#//CheckoutPage"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="webApplications" nsURI="http://www.example.org/webApplications"
+    nsPrefix="webApplications">
+  <eClassifiers xsi:type="ecore:EClass" name="WebApplication">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="page" lowerBound="1" upperBound="-1"
+        eType="#//Page" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+        upperBound="-1" eType="#//Database" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Database">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" upperBound="-1"
+        eType="#//User" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" lowerBound="1"
+        upperBound="-1" eType="#//Product" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="order" upperBound="-1"
+        eType="#//Order" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAdmin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="#//User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eMail" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shoppingcart" lowerBound="1"
+        eType="#//Shoppingcart"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="order" upperBound="-1"
+        eType="#//Order"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Admin" eSuperTypes="#//User">
+    <eOperations name="overviewOrders"/>
+    <eOperations name="banCustomer">
+      <eParameters name="customer" eType="#//Customer"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Product">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="productID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Order">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
+        eType="#//Product"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shoppingcart">
+    <eOperations name="orderProduct">
+      <eParameters name="product" eType="#//Product"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
+        eType="#//Product"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cartID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WelcomePage" eSuperTypes="#//Page">
+    <eOperations name="login">
+      <eParameters name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductPage" eSuperTypes="#//Page">
+    <eOperations name="customizeProduct">
+      <eParameters name="product" eType="#//Product"/>
+    </eOperations>
+    <eOperations name="addToCart">
+      <eParameters name="product" eType="#//Product"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
+        eType="#//Product"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckoutPage"/>
+</ecore:EPackage>
