@@ -56,7 +56,7 @@ public interface Order extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Product</em>' reference list.
 	 * @see webApplications.WebApplicationsPackage#getOrder_Product()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<Product> getProduct();

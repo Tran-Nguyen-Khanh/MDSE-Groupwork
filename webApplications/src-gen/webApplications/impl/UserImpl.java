@@ -23,6 +23,7 @@ import webApplications.WebApplicationsPackage;
  *   <li>{@link webApplications.impl.UserImpl#getUserID <em>User ID</em>}</li>
  *   <li>{@link webApplications.impl.UserImpl#getUserName <em>User Name</em>}</li>
  *   <li>{@link webApplications.impl.UserImpl#isIsAdmin <em>Is Admin</em>}</li>
+ *   <li>{@link webApplications.impl.UserImpl#getPasswort <em>Passwort</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +88,26 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @ordered
 	 */
 	protected boolean isAdmin = IS_ADMIN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPasswort() <em>Passwort</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPasswort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PASSWORT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPasswort() <em>Passwort</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPasswort()
+	 * @generated
+	 * @ordered
+	 */
+	protected String passwort = PASSWORT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +206,30 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @generated
 	 */
 	@Override
+	public String getPasswort() {
+		return passwort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPasswort(String newPasswort) {
+		String oldPasswort = passwort;
+		passwort = newPasswort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebApplicationsPackage.USER__PASSWORT, oldPasswort,
+					passwort));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case WebApplicationsPackage.USER__USER_ID:
@@ -193,6 +238,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			return getUserName();
 		case WebApplicationsPackage.USER__IS_ADMIN:
 			return isIsAdmin();
+		case WebApplicationsPackage.USER__PASSWORT:
+			return getPasswort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,6 +260,9 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			return;
 		case WebApplicationsPackage.USER__IS_ADMIN:
 			setIsAdmin((Boolean) newValue);
+			return;
+		case WebApplicationsPackage.USER__PASSWORT:
+			setPasswort((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,6 +285,9 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		case WebApplicationsPackage.USER__IS_ADMIN:
 			setIsAdmin(IS_ADMIN_EDEFAULT);
 			return;
+		case WebApplicationsPackage.USER__PASSWORT:
+			setPasswort(PASSWORT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +306,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			return USER_NAME_EDEFAULT == null ? userName != null : !USER_NAME_EDEFAULT.equals(userName);
 		case WebApplicationsPackage.USER__IS_ADMIN:
 			return isAdmin != IS_ADMIN_EDEFAULT;
+		case WebApplicationsPackage.USER__PASSWORT:
+			return PASSWORT_EDEFAULT == null ? passwort != null : !PASSWORT_EDEFAULT.equals(passwort);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -274,6 +329,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		result.append(userName);
 		result.append(", isAdmin: ");
 		result.append(isAdmin);
+		result.append(", passwort: ");
+		result.append(passwort);
 		result.append(')');
 		return result.toString();
 	}

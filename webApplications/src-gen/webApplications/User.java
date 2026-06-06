@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link webApplications.User#getUserID <em>User ID</em>}</li>
  *   <li>{@link webApplications.User#getUserName <em>User Name</em>}</li>
  *   <li>{@link webApplications.User#isIsAdmin <em>Is Admin</em>}</li>
+ *   <li>{@link webApplications.User#getPasswort <em>Passwort</em>}</li>
  * </ul>
  *
  * @see webApplications.WebApplicationsPackage#getUser()
@@ -88,5 +89,27 @@ public interface User extends EObject {
 	 * @generated
 	 */
 	void setIsAdmin(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Passwort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Passwort</em>' attribute.
+	 * @see #setPasswort(String)
+	 * @see webApplications.WebApplicationsPackage#getUser_Passwort()
+	 * @model
+	 * @generated
+	 */
+	String getPasswort();
+
+	/**
+	 * Sets the value of the '{@link webApplications.User#getPasswort <em>Passwort</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Passwort</em>' attribute.
+	 * @see #getPasswort()
+	 * @generated
+	 */
+	void setPasswort(String value);
 
 } // User

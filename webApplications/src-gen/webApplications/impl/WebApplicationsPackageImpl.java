@@ -231,6 +231,16 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 	 * @generated
 	 */
 	@Override
+	public EAttribute getWebApplication_URL() {
+		return (EAttribute) webApplicationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPage() {
 		return pageEClass;
 	}
@@ -373,6 +383,16 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 	@Override
 	public EAttribute getUser_IsAdmin() {
 		return (EAttribute) userEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getUser_Passwort() {
+		return (EAttribute) userEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -621,8 +641,8 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShoppingcart_TotalPrice() {
-		return (EAttribute) shoppingcartEClass.getEStructuralFeatures().get(2);
+	public EOperation getShoppingcart__OrderProduct__Product() {
+		return shoppingcartEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -631,8 +651,8 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 	 * @generated
 	 */
 	@Override
-	public EOperation getShoppingcart__OrderProduct__Product() {
-		return shoppingcartEClass.getEOperations().get(0);
+	public EOperation getShoppingcart__SumUpPries() {
+		return shoppingcartEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -739,6 +759,7 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		createEAttribute(webApplicationEClass, WEB_APPLICATION__NAME);
 		createEReference(webApplicationEClass, WEB_APPLICATION__PAGE);
 		createEReference(webApplicationEClass, WEB_APPLICATION__DATABASE);
+		createEAttribute(webApplicationEClass, WEB_APPLICATION__URL);
 
 		pageEClass = createEClass(PAGE);
 		createEAttribute(pageEClass, PAGE__PAGE_ID);
@@ -757,6 +778,7 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		createEAttribute(userEClass, USER__USER_ID);
 		createEAttribute(userEClass, USER__USER_NAME);
 		createEAttribute(userEClass, USER__IS_ADMIN);
+		createEAttribute(userEClass, USER__PASSWORT);
 
 		customerEClass = createEClass(CUSTOMER);
 		createEAttribute(customerEClass, CUSTOMER__EMAIL);
@@ -786,8 +808,8 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		shoppingcartEClass = createEClass(SHOPPINGCART);
 		createEReference(shoppingcartEClass, SHOPPINGCART__PRODUCT);
 		createEAttribute(shoppingcartEClass, SHOPPINGCART__CART_ID);
-		createEAttribute(shoppingcartEClass, SHOPPINGCART__TOTAL_PRICE);
 		createEOperation(shoppingcartEClass, SHOPPINGCART___ORDER_PRODUCT__PRODUCT);
+		createEOperation(shoppingcartEClass, SHOPPINGCART___SUM_UP_PRIES);
 
 		welcomePageEClass = createEClass(WELCOME_PAGE);
 		createEOperation(welcomePageEClass, WELCOME_PAGE___LOGIN__STRING_STRING);
@@ -849,6 +871,8 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		initEReference(getWebApplication_Database(), this.getDatabase(), null, "database", null, 1, -1,
 				WebApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWebApplication_URL(), ecorePackage.getEString(), "URL", null, 0, 1, WebApplication.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPage_PageID(), ecorePackage.getEInt(), "pageID", null, 1, 1, Page.class, !IS_TRANSIENT,
@@ -869,7 +893,7 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		initEReference(getDatabase_User(), this.getUser(), null, "user", null, 1, -1, Database.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getDatabase_Product(), this.getProduct(), null, "product", null, 1, -1, Database.class,
+		initEReference(getDatabase_Product(), this.getProduct(), null, "product", null, 0, -1, Database.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabase_Order(), this.getOrder(), null, "order", null, 0, -1, Database.class, !IS_TRANSIENT,
@@ -882,6 +906,8 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		initEAttribute(getUser_UserName(), ecorePackage.getEString(), "userName", null, 0, 1, User.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_IsAdmin(), ecorePackage.getEBoolean(), "isAdmin", null, 0, 1, User.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_Passwort(), ecorePackage.getEString(), "passwort", null, 0, 1, User.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE,
@@ -922,7 +948,7 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 		initEClass(orderEClass, Order.class, "Order", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrder_OrderID(), ecorePackage.getEInt(), "orderID", null, 1, 1, Order.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrder_Product(), this.getProduct(), null, "product", null, 0, -1, Order.class, !IS_TRANSIENT,
+		initEReference(getOrder_Product(), this.getProduct(), null, "product", null, 1, -1, Order.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEAttribute(getOrder_Date(), ecorePackage.getEString(), "date", null, 0, 1, Order.class, !IS_TRANSIENT,
@@ -939,13 +965,12 @@ public class WebApplicationsPackageImpl extends EPackageImpl implements WebAppli
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShoppingcart_CartID(), ecorePackage.getEInt(), "cartID", null, 0, 1, Shoppingcart.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getShoppingcart_TotalPrice(), ecorePackage.getEFloat(), "totalPrice", null, 0, 1,
-				Shoppingcart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getShoppingcart__OrderProduct__Product(), null, "orderProduct", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 		addEParameter(op, this.getProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getShoppingcart__SumUpPries(), null, "sumUpPries", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(welcomePageEClass, WelcomePage.class, "WelcomePage", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

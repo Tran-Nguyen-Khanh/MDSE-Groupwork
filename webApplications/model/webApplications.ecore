@@ -9,6 +9,7 @@
         eType="#//Page" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
         upperBound="-1" eType="#//Database" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Page">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageID" lowerBound="1"
@@ -23,8 +24,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="connURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" upperBound="-1"
         eType="#//User" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="product" lowerBound="1"
-        upperBound="-1" eType="#//Product" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
+        eType="#//Product" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="order" upperBound="-1"
         eType="#//Order" containment="true"/>
   </eClassifiers>
@@ -33,6 +34,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAdmin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="#//User">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eMail" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -60,8 +62,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Order">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderID" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
-        eType="#//Product"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" lowerBound="1"
+        upperBound="-1" eType="#//Product"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -70,10 +72,10 @@
     <eOperations name="orderProduct">
       <eParameters name="product" eType="#//Product"/>
     </eOperations>
+    <eOperations name="sumUpPries"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
         eType="#//Product"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cartID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WelcomePage" eSuperTypes="#//Page">
     <eOperations name="login">

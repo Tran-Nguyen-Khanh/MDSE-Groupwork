@@ -57,6 +57,7 @@ public class WebApplicationItemProvider extends ItemProviderAdapter implements I
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addURLPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +75,22 @@ public class WebApplicationItemProvider extends ItemProviderAdapter implements I
 						getString("_UI_PropertyDescriptor_description", "_UI_WebApplication_name_feature",
 								"_UI_WebApplication_type"),
 						WebApplicationsPackage.Literals.WEB_APPLICATION__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the URL feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addURLPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_WebApplication_URL_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_WebApplication_URL_feature",
+								"_UI_WebApplication_type"),
+						WebApplicationsPackage.Literals.WEB_APPLICATION__URL, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -155,6 +172,7 @@ public class WebApplicationItemProvider extends ItemProviderAdapter implements I
 
 		switch (notification.getFeatureID(WebApplication.class)) {
 		case WebApplicationsPackage.WEB_APPLICATION__NAME:
+		case WebApplicationsPackage.WEB_APPLICATION__URL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case WebApplicationsPackage.WEB_APPLICATION__PAGE:

@@ -31,7 +31,6 @@ import webApplications.WebApplicationsPackage;
  * <ul>
  *   <li>{@link webApplications.impl.ShoppingcartImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link webApplications.impl.ShoppingcartImpl#getCartID <em>Cart ID</em>}</li>
- *   <li>{@link webApplications.impl.ShoppingcartImpl#getTotalPrice <em>Total Price</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,26 +65,6 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 	 * @ordered
 	 */
 	protected int cartID = CART_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTotalPrice() <em>Total Price</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTotalPrice()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float TOTAL_PRICE_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getTotalPrice() <em>Total Price</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTotalPrice()
-	 * @generated
-	 * @ordered
-	 */
-	protected float totalPrice = TOTAL_PRICE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,31 +129,19 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 	 * @generated
 	 */
 	@Override
-	public float getTotalPrice() {
-		return totalPrice;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTotalPrice(float newTotalPrice) {
-		float oldTotalPrice = totalPrice;
-		totalPrice = newTotalPrice;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebApplicationsPackage.SHOPPINGCART__TOTAL_PRICE,
-					oldTotalPrice, totalPrice));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public void orderProduct(Product product) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void sumUpPries() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -192,8 +159,6 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 			return getProduct();
 		case WebApplicationsPackage.SHOPPINGCART__CART_ID:
 			return getCartID();
-		case WebApplicationsPackage.SHOPPINGCART__TOTAL_PRICE:
-			return getTotalPrice();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,9 +179,6 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 		case WebApplicationsPackage.SHOPPINGCART__CART_ID:
 			setCartID((Integer) newValue);
 			return;
-		case WebApplicationsPackage.SHOPPINGCART__TOTAL_PRICE:
-			setTotalPrice((Float) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -235,9 +197,6 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 		case WebApplicationsPackage.SHOPPINGCART__CART_ID:
 			setCartID(CART_ID_EDEFAULT);
 			return;
-		case WebApplicationsPackage.SHOPPINGCART__TOTAL_PRICE:
-			setTotalPrice(TOTAL_PRICE_EDEFAULT);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -254,8 +213,6 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 			return product != null && !product.isEmpty();
 		case WebApplicationsPackage.SHOPPINGCART__CART_ID:
 			return cartID != CART_ID_EDEFAULT;
-		case WebApplicationsPackage.SHOPPINGCART__TOTAL_PRICE:
-			return totalPrice != TOTAL_PRICE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,6 +227,9 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 		switch (operationID) {
 		case WebApplicationsPackage.SHOPPINGCART___ORDER_PRODUCT__PRODUCT:
 			orderProduct((Product) arguments.get(0));
+			return null;
+		case WebApplicationsPackage.SHOPPINGCART___SUM_UP_PRIES:
+			sumUpPries();
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -288,8 +248,6 @@ public class ShoppingcartImpl extends MinimalEObjectImpl.Container implements Sh
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (cartID: ");
 		result.append(cartID);
-		result.append(", totalPrice: ");
-		result.append(totalPrice);
 		result.append(')');
 		return result.toString();
 	}

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link webApplications.WebApplication#getName <em>Name</em>}</li>
  *   <li>{@link webApplications.WebApplication#getPage <em>Page</em>}</li>
  *   <li>{@link webApplications.WebApplication#getDatabase <em>Database</em>}</li>
+ *   <li>{@link webApplications.WebApplication#getURL <em>URL</em>}</li>
  * </ul>
  *
  * @see webApplications.WebApplicationsPackage#getWebApplication()
@@ -70,5 +71,27 @@ public interface WebApplication extends EObject {
 	 * @generated
 	 */
 	EList<Database> getDatabase();
+
+	/**
+	 * Returns the value of the '<em><b>URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>URL</em>' attribute.
+	 * @see #setURL(String)
+	 * @see webApplications.WebApplicationsPackage#getWebApplication_URL()
+	 * @model
+	 * @generated
+	 */
+	String getURL();
+
+	/**
+	 * Sets the value of the '{@link webApplications.WebApplication#getURL <em>URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>URL</em>' attribute.
+	 * @see #getURL()
+	 * @generated
+	 */
+	void setURL(String value);
 
 } // WebApplication

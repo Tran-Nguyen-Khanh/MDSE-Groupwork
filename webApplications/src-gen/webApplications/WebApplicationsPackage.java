@@ -95,13 +95,22 @@ public interface WebApplicationsPackage extends EPackage {
 	int WEB_APPLICATION__DATABASE = 2;
 
 	/**
+	 * The feature id for the '<em><b>URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_APPLICATION__URL = 3;
+
+	/**
 	 * The number of structural features of the '<em>Web Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WEB_APPLICATION_FEATURE_COUNT = 3;
+	int WEB_APPLICATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Web Application</em>' class.
@@ -287,13 +296,22 @@ public interface WebApplicationsPackage extends EPackage {
 	int USER__IS_ADMIN = 2;
 
 	/**
+	 * The feature id for the '<em><b>Passwort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__PASSWORT = 3;
+
+	/**
 	 * The number of structural features of the '<em>User</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = 3;
+	int USER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -340,6 +358,15 @@ public interface WebApplicationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CUSTOMER__IS_ADMIN = USER__IS_ADMIN;
+
+	/**
+	 * The feature id for the '<em><b>Passwort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER__PASSWORT = USER__PASSWORT;
 
 	/**
 	 * The feature id for the '<em><b>EMail</b></em>' attribute.
@@ -431,6 +458,15 @@ public interface WebApplicationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADMIN__IS_ADMIN = USER__IS_ADMIN;
+
+	/**
+	 * The feature id for the '<em><b>Passwort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN__PASSWORT = USER__PASSWORT;
 
 	/**
 	 * The number of structural features of the '<em>Admin</em>' class.
@@ -652,22 +688,13 @@ public interface WebApplicationsPackage extends EPackage {
 	int SHOPPINGCART__CART_ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Total Price</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SHOPPINGCART__TOTAL_PRICE = 2;
-
-	/**
 	 * The number of structural features of the '<em>Shoppingcart</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHOPPINGCART_FEATURE_COUNT = 3;
+	int SHOPPINGCART_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Order Product</em>' operation.
@@ -679,13 +706,22 @@ public interface WebApplicationsPackage extends EPackage {
 	int SHOPPINGCART___ORDER_PRODUCT__PRODUCT = 0;
 
 	/**
+	 * The operation id for the '<em>Sum Up Pries</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHOPPINGCART___SUM_UP_PRIES = 1;
+
+	/**
 	 * The number of operations of the '<em>Shoppingcart</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHOPPINGCART_OPERATION_COUNT = 1;
+	int SHOPPINGCART_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link webApplications.impl.WelcomePageImpl <em>Welcome Page</em>}' class.
@@ -905,6 +941,17 @@ public interface WebApplicationsPackage extends EPackage {
 	EReference getWebApplication_Database();
 
 	/**
+	 * Returns the meta object for the attribute '{@link webApplications.WebApplication#getURL <em>URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>URL</em>'.
+	 * @see webApplications.WebApplication#getURL()
+	 * @see #getWebApplication()
+	 * @generated
+	 */
+	EAttribute getWebApplication_URL();
+
+	/**
 	 * Returns the meta object for class '{@link webApplications.Page <em>Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1065,6 +1112,17 @@ public interface WebApplicationsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUser_IsAdmin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link webApplications.User#getPasswort <em>Passwort</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Passwort</em>'.
+	 * @see webApplications.User#getPasswort()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Passwort();
 
 	/**
 	 * Returns the meta object for class '{@link webApplications.Customer <em>Customer</em>}'.
@@ -1324,17 +1382,6 @@ public interface WebApplicationsPackage extends EPackage {
 	EAttribute getShoppingcart_CartID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link webApplications.Shoppingcart#getTotalPrice <em>Total Price</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Total Price</em>'.
-	 * @see webApplications.Shoppingcart#getTotalPrice()
-	 * @see #getShoppingcart()
-	 * @generated
-	 */
-	EAttribute getShoppingcart_TotalPrice();
-
-	/**
 	 * Returns the meta object for the '{@link webApplications.Shoppingcart#orderProduct(webApplications.Product) <em>Order Product</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1343,6 +1390,16 @@ public interface WebApplicationsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getShoppingcart__OrderProduct__Product();
+
+	/**
+	 * Returns the meta object for the '{@link webApplications.Shoppingcart#sumUpPries() <em>Sum Up Pries</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sum Up Pries</em>' operation.
+	 * @see webApplications.Shoppingcart#sumUpPries()
+	 * @generated
+	 */
+	EOperation getShoppingcart__SumUpPries();
 
 	/**
 	 * Returns the meta object for class '{@link webApplications.WelcomePage <em>Welcome Page</em>}'.
@@ -1473,6 +1530,14 @@ public interface WebApplicationsPackage extends EPackage {
 		EReference WEB_APPLICATION__DATABASE = eINSTANCE.getWebApplication_Database();
 
 		/**
+		 * The meta object literal for the '<em><b>URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEB_APPLICATION__URL = eINSTANCE.getWebApplication_URL();
+
+		/**
 		 * The meta object literal for the '{@link webApplications.impl.PageImpl <em>Page</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1597,6 +1662,14 @@ public interface WebApplicationsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute USER__IS_ADMIN = eINSTANCE.getUser_IsAdmin();
+
+		/**
+		 * The meta object literal for the '<em><b>Passwort</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__PASSWORT = eINSTANCE.getUser_Passwort();
 
 		/**
 		 * The meta object literal for the '{@link webApplications.impl.CustomerImpl <em>Customer</em>}' class.
@@ -1801,20 +1874,20 @@ public interface WebApplicationsPackage extends EPackage {
 		EAttribute SHOPPINGCART__CART_ID = eINSTANCE.getShoppingcart_CartID();
 
 		/**
-		 * The meta object literal for the '<em><b>Total Price</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SHOPPINGCART__TOTAL_PRICE = eINSTANCE.getShoppingcart_TotalPrice();
-
-		/**
 		 * The meta object literal for the '<em><b>Order Product</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation SHOPPINGCART___ORDER_PRODUCT__PRODUCT = eINSTANCE.getShoppingcart__OrderProduct__Product();
+
+		/**
+		 * The meta object literal for the '<em><b>Sum Up Pries</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHOPPINGCART___SUM_UP_PRIES = eINSTANCE.getShoppingcart__SumUpPries();
 
 		/**
 		 * The meta object literal for the '{@link webApplications.impl.WelcomePageImpl <em>Welcome Page</em>}' class.

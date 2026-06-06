@@ -113,7 +113,7 @@ public interface Database extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Product</em>' containment reference list.
 	 * @see webApplications.WebApplicationsPackage#getDatabase_Product()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Product> getProduct();

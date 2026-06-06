@@ -34,6 +34,7 @@ import webApplications.WebApplicationsPackage;
  *   <li>{@link webApplications.impl.WebApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link webApplications.impl.WebApplicationImpl#getPage <em>Page</em>}</li>
  *   <li>{@link webApplications.impl.WebApplicationImpl#getDatabase <em>Database</em>}</li>
+ *   <li>{@link webApplications.impl.WebApplicationImpl#getURL <em>URL</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +79,26 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Database> database;
+
+	/**
+	 * The default value of the '{@link #getURL() <em>URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getURL() <em>URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected String url = URL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +176,30 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
+	public String getURL() {
+		return url;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setURL(String newURL) {
+		String oldURL = url;
+		url = newURL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebApplicationsPackage.WEB_APPLICATION__URL, oldURL,
+					url));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case WebApplicationsPackage.WEB_APPLICATION__PAGE:
@@ -179,6 +224,8 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 			return getPage();
 		case WebApplicationsPackage.WEB_APPLICATION__DATABASE:
 			return getDatabase();
+		case WebApplicationsPackage.WEB_APPLICATION__URL:
+			return getURL();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,6 +250,9 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 			getDatabase().clear();
 			getDatabase().addAll((Collection<? extends Database>) newValue);
 			return;
+		case WebApplicationsPackage.WEB_APPLICATION__URL:
+			setURL((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -224,6 +274,9 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 		case WebApplicationsPackage.WEB_APPLICATION__DATABASE:
 			getDatabase().clear();
 			return;
+		case WebApplicationsPackage.WEB_APPLICATION__URL:
+			setURL(URL_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,6 +295,8 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 			return page != null && !page.isEmpty();
 		case WebApplicationsPackage.WEB_APPLICATION__DATABASE:
 			return database != null && !database.isEmpty();
+		case WebApplicationsPackage.WEB_APPLICATION__URL:
+			return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -259,6 +314,8 @@ public class WebApplicationImpl extends MinimalEObjectImpl.Container implements 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", URL: ");
+		result.append(url);
 		result.append(')');
 		return result.toString();
 	}

@@ -56,6 +56,7 @@ public class UserItemProvider extends ItemProviderAdapter implements IEditingDom
 			addUserIDPropertyDescriptor(object);
 			addUserNamePropertyDescriptor(object);
 			addIsAdminPropertyDescriptor(object);
+			addPasswortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,6 +104,21 @@ public class UserItemProvider extends ItemProviderAdapter implements IEditingDom
 						getString("_UI_PropertyDescriptor_description", "_UI_User_isAdmin_feature", "_UI_User_type"),
 						WebApplicationsPackage.Literals.USER__IS_ADMIN, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Passwort feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPasswortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_User_passwort_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_User_passwort_feature", "_UI_User_type"),
+						WebApplicationsPackage.Literals.USER__PASSWORT, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -154,6 +170,7 @@ public class UserItemProvider extends ItemProviderAdapter implements IEditingDom
 		case WebApplicationsPackage.USER__USER_ID:
 		case WebApplicationsPackage.USER__USER_NAME:
 		case WebApplicationsPackage.USER__IS_ADMIN:
+		case WebApplicationsPackage.USER__PASSWORT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
